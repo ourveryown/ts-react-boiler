@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 import Router from "./domains/app/router";
 class App extends Component {
-  render() {
+  public render() {
     return (
       <div className="App">
         <Router />

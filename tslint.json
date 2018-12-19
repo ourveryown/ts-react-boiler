@@ -1,0 +1,13 @@
+{
+  "defaultSeverity": "error",
+  "extends": ["tslint:recommended", "tslint-react"],
+  "jsRules": {},
+  "rules": {
+    "trailing-comma": [false],
+    "jsx-no-multiline-js": [false]
+  },
+  "rulesDirectory": [],
+  "linterOptions": {
+    "exclude": ["src/serviceWorker.ts"]
+  }
+}

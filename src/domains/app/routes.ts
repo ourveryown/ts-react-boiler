@@ -2,6 +2,9 @@ import { ComponentType } from "react";
 
 import { Login } from "../auth/pages";
 
-type route = { path: String; component: ComponentType };
+interface IRoute {
+  path: string;
+  component: ComponentType;
+}
 
-export const ROUTES: Array<route> = [{ path: "", component: Login }];
+export const ROUTES: IRoute[] = [{ path: "", component: Login }];
