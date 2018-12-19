@@ -8,8 +8,8 @@ export default class Routes extends Component {
     return (
       <BrowserRouter>
         <Switch>
-          {ROUTES.map((route, index) => (
-            <Route key={index} exact path={`/${route.path}`} component={route.component} />
+          {ROUTES.map(({ path, component }, index: number) => (
+            <Route key={index} exact path={`/${path}`} component={component} />
           ))}
           <Redirect to="/" />
         </Switch>
