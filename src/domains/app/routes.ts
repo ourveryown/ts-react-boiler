@@ -1,5 +1,7 @@
-import { Component } from "react";
+import { ComponentType } from "react";
 
 import { Login } from "../auth/pages";
 
-export const ROUTES = [{ path: "", component: Login }];
+type route = { path: String; component: ComponentType };
+
+export const ROUTES: Array<route> = [{ path: "", component: Login }];
