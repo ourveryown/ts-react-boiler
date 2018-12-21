@@ -4,7 +4,10 @@
   "jsRules": {},
   "rules": {
     "trailing-comma": [false],
-    "jsx-no-multiline-js": [false]
+    "jsx-no-multiline-js": [false],
+    "max-line-length": {
+      "options": [120]
+    }
   },
   "rulesDirectory": [],
   "linterOptions": {

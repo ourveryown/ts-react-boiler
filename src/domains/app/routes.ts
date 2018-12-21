@@ -1,8 +1,12 @@
 import { Login } from "../auth/pages";
+import { Home } from "../home/pages";
+
+import { ComponentType } from "react";
 
 interface IRoute {
   path: string;
-  component: any;
+  component: ComponentType;
 }
 
-export const ROUTES: IRoute[] = [{ path: "", component: Login }];
+export const LOGGED_IN_ROUTES: IRoute[] = [{ path: "", component: Home }];
+export const NO_LOGIN_ROUTES: IRoute[] = [{ path: "", component: Login }];

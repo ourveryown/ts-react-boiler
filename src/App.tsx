@@ -1,5 +1,8 @@
 import React, { Component } from "react";
 
+// STYLES
+import "./domains/app/styles/app.scss";
+
 // API
 import { ApolloProvider } from "react-apollo";
 import Client from "./config/api";
