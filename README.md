@@ -1,44 +1,60 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# TS-React-Boiler
 
-## Available Scripts
+# Table of contents
 
-In the project directory, you can run:
+1.  [Getting Started](#getting-started)
+1.  [Development](#development)
+1.  [Deployment](#deployment)
 
-### `npm start`
+# Getting started
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+\*\* Add Instructions specific to getting the development environment started. E.g. asdf, node version, yarn, etc.
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+# Development
 
-### `npm test`
+## App structure
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### src
 
-### `npm run build`
+_Main sources folder_
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+#### config
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+_Contains files that configure certain parts of the application e.g. API, Redux Store_
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+#### components
 
-### `npm run eject`
+_All components that are widely used between domains. Like buttons or other UI components_
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+#### constants
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+_Constants used across the entire project_
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+#### domains:
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+_Domains split the app up in *logical* folders. If a single file becomes to big or has multiple items in it, you can split it up into separate files/folders._
 
-## Learn More
+| Folder name(s) |                                                              |
+| -------------- | ------------------------------------------------------------ |
+| components     | Domain specific components                                   |
+| pages          | Domain specific screens                                      |
+| redux          | Redux files related to this domain: actions, reducers, types |
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+#### util
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+_All functions that can be re-used throughout the app._
+
+## Code Format
+
+Using TSLint recommended and TSLint
+
+To test linting run `yarn lint`
+
+## Testing
+
+1.  In dev
+    `yarn test`
+
+# Deployment
+
+We use `yarn build` to output the static site so that it is ready to go from a deployment perspective.
