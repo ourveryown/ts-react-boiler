@@ -1,29 +1,41 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import { Redirect, Route, Switch } from "react-router-dom";
 
-// STYLES
-import "./domains/app/styles/app.scss";
+import { LOGGED_IN_ROUTES, NO_LOGIN_ROUTES } from "./domains/app/routes";
 
-// API
-import { ApolloProvider } from "react-apollo";
-import Client from "./config/api";
+import { IApplicationState } from "./domains/app/root-reducer";
 
-// REDUX
-import { Provider } from "react-redux";
-import store from "./config/store";
+const mapStateToProps = (state: IApplicationState) => ({
+  token: state.auth.token
+});
 
-// WEB APP
-import Router from "./domains/app/router";
+interface IStateProps {
+  token: string | null;
+}
 
-class App extends Component {
+type Props = IStateProps;
+
+class App extends Component<Props> {
   public render() {
+    const { token } = this.props;
+
+    const routes = token ? LOGGED_IN_ROUTES : NO_LOGIN_ROUTES;
+
     return (
-      <Provider store={store()}>
-        <ApolloProvider client={Client}>
-          <Router />
-        </ApolloProvider>
-      </Provider>
+      <Switch>
+        {routes.map(({ path, component }, index: number) => (
+          <Route
+            key={index}
+            exact={true}
+            path={`/${path}`}
+            component={component}
+          />
+        ))}
+        <Redirect to="/" />
+      </Switch>
     );
   }
 }
 
-export default App;
+export default connect(mapStateToProps)(App);
