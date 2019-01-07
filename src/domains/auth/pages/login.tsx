@@ -4,14 +4,14 @@ import { LOGIN } from "../graphql";
 
 import { connect } from "react-redux";
 import { Dispatch } from "redux";
-import { ApplicationAction, ApplicationState } from "../../app/root-reducer";
+import { ApplicationAction, IApplicationState } from "../../app/root-reducer";
 import * as actions from "../redux/actions";
 
 import { Loader } from "../../../components";
 
 import { AUTH_TOKEN } from "../../../constants/storageTokens";
 
-const mapStateToProps = (state: ApplicationState) => ({
+const mapStateToProps = (state: IApplicationState) => ({
   email: state.auth.data.email,
   loading: state.auth.loading,
   password: state.auth.data.password

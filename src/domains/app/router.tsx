@@ -4,9 +4,9 @@ import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
 
 import { LOGGED_IN_ROUTES, NO_LOGIN_ROUTES } from "./routes";
 
-import { ApplicationState } from "./root-reducer";
+import { IApplicationState } from "./root-reducer";
 
-const mapStateToProps = (state: ApplicationState) => ({
+const mapStateToProps = (state: IApplicationState) => ({
   token: state.auth.token
 });
 

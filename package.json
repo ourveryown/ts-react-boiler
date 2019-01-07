@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "@types/graphql": "^14.0.3",
-    "@types/jest": "23.3.10",
+    "@types/jest": "^23.3.12",
     "@types/node": "^10.12.17",
     "@types/react": "^16.7.17",
     "@types/react-dom": "16.0.11",
@@ -28,7 +28,6 @@
     "redux-thunk": "^2.3.0",
     "tslint": "^5.12.0",
     "tslint-react": "^3.6.0",
-    "typesafe-actions": "^2.0.4",
     "typescript": "3.2.2"
   },
   "scripts": {

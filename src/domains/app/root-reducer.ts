@@ -1,12 +1,13 @@
 import { combineReducers } from "redux";
-import { StateType } from "typesafe-actions";
-import auth, { AuthAction } from "../auth/redux/reducers";
+import auth, { AuthAction, IAuthState } from "../auth/redux/reducers";
 
 const rootReducer = combineReducers({
   auth
 });
 
-export type ApplicationState = StateType<typeof rootReducer>;
+export interface IApplicationState {
+  auth: IAuthState;
+}
 
 export type ApplicationAction = AuthAction;
 

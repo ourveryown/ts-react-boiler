@@ -1,9 +1,17 @@
-import { ActionType } from "typesafe-actions";
 import { AUTH_TOKEN } from "../../../constants/storageTokens";
 import * as actions from "./actions";
-import { AuthActionTypes, IAuthState } from "./types";
+import { AuthActionTypes } from "./types";
 
-export type AuthAction = ActionType<typeof actions>;
+export interface IAuthState {
+  readonly loading: boolean;
+  readonly data: { email: string; password: string };
+  readonly token: string | null;
+}
+
+export type AuthAction =
+  | actions.IAuthLoading
+  | actions.ILogin
+  | actions.ILoginInputChange;
 
 const initialState: IAuthState = {
   data: {
@@ -21,14 +29,14 @@ const updateObject = (oldObject: IAuthState, newValues: object) => {
 export default (state: IAuthState = initialState, action: AuthAction) => {
   switch (action.type) {
     case AuthActionTypes.LOGIN: {
-      return updateObject(state, { token: action.payload.token });
+      return updateObject(state, { token: action.token });
     }
     case AuthActionTypes.LOADING: {
-      return updateObject(state, { loading: action.payload.loading });
+      return updateObject(state, { loading: action.loading });
     }
     case AuthActionTypes.INPUT_CHANGED: {
       return updateObject(state, {
-        data: { ...state.data, [action.payload.name]: action.payload.value }
+        data: { ...state.data, [action.name]: action.value }
       });
     }
     default:

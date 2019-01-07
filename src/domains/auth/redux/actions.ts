@@ -1,9 +1,36 @@
-import { action } from "typesafe-actions";
 import { AuthActionTypes } from "./types";
 
-export const loginAction = (token: string) => action(AuthActionTypes.LOGIN, { token });
+export interface ILogin {
+  type: AuthActionTypes.LOGIN;
+  token: string;
+}
 
-export const loginInputChanged = (name: string, value: string) =>
-  action(AuthActionTypes.INPUT_CHANGED, { name, value });
+export interface ILoginInputChange {
+  type: AuthActionTypes.INPUT_CHANGED;
+  name: string;
+  value: string;
+}
 
-export const loadingAction = (loading: boolean) => action(AuthActionTypes.LOADING, { loading });
+export interface IAuthLoading {
+  type: AuthActionTypes.LOADING;
+  loading: boolean;
+}
+
+export const loginAction = (token: string): ILogin => ({
+  type: AuthActionTypes.LOGIN,
+  token
+});
+
+export const loginInputChanged = (
+  name: string,
+  value: string
+): ILoginInputChange => ({
+  type: AuthActionTypes.INPUT_CHANGED,
+  name,
+  value
+});
+
+export const loadingAction = (loading: boolean): IAuthLoading => ({
+  type: AuthActionTypes.LOADING,
+  loading
+});
