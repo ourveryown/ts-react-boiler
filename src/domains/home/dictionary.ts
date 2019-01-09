@@ -1,5 +1,5 @@
 export default {
   en: {
-    login: "Login"
+    home: "Hello From Home!!"
   }
 };

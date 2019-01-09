@@ -1,8 +1,11 @@
 import i18next from "i18next";
-import auth from "../domains/auth/dictionary";
+import { reactI18nextModule } from "react-i18next";
 
-const domains: i18next.ResourceLanguage[] = [auth];
-const languages: string[] = ["en", "fn"];
+import auth from "../domains/auth/dictionary";
+import home from "../domains/home/dictionary";
+
+const domains: i18next.ResourceLanguage[] = [auth, home];
+const languages: string[] = ["en"];
 
 const resources = languages.reduce((acc: i18next.Resource, language) => {
   const translation = domains.reduce(
@@ -18,7 +21,7 @@ const resources = languages.reduce((acc: i18next.Resource, language) => {
   return acc;
 }, {});
 
-i18next.init({
+i18next.use(reactI18nextModule).init({
   interpolation: {
     // React already does escaping
     escapeValue: false

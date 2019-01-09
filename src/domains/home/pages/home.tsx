@@ -1,7 +1,13 @@
 import React, { Component } from "react";
+import { withNamespaces, WithNamespaces } from "react-i18next";
 
-export default class Home extends Component {
+type Props = WithNamespaces;
+
+class Home extends Component<Props> {
   public render() {
-    return <div>Hello From Home!</div>;
+    const { t } = this.props;
+    return <div>{t("home")}</div>;
   }
 }
+
+export default withNamespaces()(Home);

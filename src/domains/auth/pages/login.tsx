@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { compose, graphql } from "react-apollo";
+import { withNamespaces, WithNamespaces } from "react-i18next";
 import { LOGIN } from "../graphql";
 
 import { connect } from "react-redux";
@@ -42,7 +43,7 @@ interface IOtherProps {
   ) => Promise<any>;
 }
 
-type Props = IStateProps & IDispatchProps & IOtherProps;
+type Props = IStateProps & IDispatchProps & WithNamespaces & IOtherProps;
 
 class Login extends Component<Props> {
   public onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -77,7 +78,7 @@ class Login extends Component<Props> {
   }
 
   public render() {
-    const { loading, email, password } = this.props;
+    const { loading, email, password, t } = this.props;
 
     if (loading) {
       return <Loader />;
@@ -98,7 +99,7 @@ class Login extends Component<Props> {
           name="password"
         />
         <div className="btn btn-primary" onClick={this.login}>
-          Log In!
+          {t("login")}
         </div>
       </div>
     );
@@ -108,4 +109,4 @@ class Login extends Component<Props> {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(compose(graphql(LOGIN, { name: "loginMutation" }))(Login));
+)(compose(graphql(LOGIN, { name: "loginMutation" }))(withNamespaces()(Login)));
