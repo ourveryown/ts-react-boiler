@@ -29,3 +29,5 @@ i18next.use(reactI18nextModule).init({
   lng: "en",
   resources
 });
+
+export default i18next;

@@ -5,7 +5,8 @@ import ReactDOM from "react-dom";
 import "./domains/app/styles/app.scss";
 
 // i18n
-import "./config/i18n";
+import { I18nextProvider } from "react-i18next";
+import i18n from "./config/i18n";
 
 // API
 import { ApolloProvider } from "react-apollo";
@@ -28,9 +29,11 @@ const render = (Component: ComponentType) => {
   return ReactDOM.render(
     <Provider store={store}>
       <ApolloProvider client={Client}>
-        <BrowserRouter>
-          <Component />
-        </BrowserRouter>
+        <I18nextProvider i18n={i18n}>
+          <BrowserRouter>
+            <Component />
+          </BrowserRouter>
+        </I18nextProvider>
       </ApolloProvider>
     </Provider>,
     document.getElementById("root")
