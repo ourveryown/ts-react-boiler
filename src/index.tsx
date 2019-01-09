@@ -4,6 +4,9 @@ import ReactDOM from "react-dom";
 // STYLES
 import "./domains/app/styles/app.scss";
 
+// i18n
+import "./config/i18n";
+
 // API
 import { ApolloProvider } from "react-apollo";
 import Client from "./config/api";
